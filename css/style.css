@@ -87,6 +87,30 @@ h3 { font-size: var(--fs-h3) }
 
 strong { font-weight: var(--fw-bold) }
 
+/* consider this element - may be better modern solution */
+:focus {
+  outline: 3px solid var(--clr-accent);
+  outline-offset: 3px;
+}
+
+.btn {
+  display: inline-block;
+  padding: .5em 2.5em;
+  background: var(--clr-accent);
+  color: var(--clr-dark);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: var(--fw-bold);
+  transition: transform 200ms ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.1);
+}
+
 .section__title {
   margin-bottom: .25em;
 }
@@ -122,6 +146,10 @@ strong { font-weight: var(--fw-bold) }
   box-shadow: var(--bs);
 }
 
+.section__subtitle--intro {
+  display: inline-block;
+}
+
 @media (min-width: 600px) {
   .intro {
     margin: 0 auto;
@@ -153,3 +181,50 @@ strong { font-weight: var(--fw-bold) }
   }
 }
 
+/* Services section */
+
+.my-services {
+  background-color: var(--clr-dark);
+  background-image: url(../img/services-bg.jpg);
+  background-size: cover;
+  /* background-blend-mode: multiply; */
+  color: var(--clr-light);
+  text-align: center;
+}
+
+.section__title--services {
+  color: var(--clr-accent);
+  position: relative;
+}
+
+.section__title--services::after {
+  content: '';
+  display: block;
+  width: 2em;
+  height: 1px;
+  margin: 0.5em auto 1em;
+  background: var(--clr-light);
+  opacity: 0.25;
+}
+
+.services {
+  margin-bottom: 4em;
+}
+
+.service {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+@media (min-width: 800px) {
+  .services {
+    display: flex;
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+
+  /* use gap instead of this? - gap is now available in flexbox */
+  .service + .service {
+    margin-left: 2em;
+  }
+}
